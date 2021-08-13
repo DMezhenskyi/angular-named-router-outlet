@@ -1,5 +1,10 @@
 import { HttpClient } from "@angular/common/http";
-import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  HostBinding,
+} from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Observable } from "rxjs";
 import { pluck, switchMap } from "rxjs/operators";
@@ -31,6 +36,7 @@ interface PhotoDetails {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PhotosDetailsComponent implements OnInit {
+  @HostBinding("class.mat-elevation-z2") hostCls = true;
   photo$!: Observable<PhotoDetails>;
   constructor(
     private http: HttpClient,

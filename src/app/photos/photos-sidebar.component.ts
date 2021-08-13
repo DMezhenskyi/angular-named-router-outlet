@@ -18,7 +18,13 @@ interface Photo {
       </li>
     </ul>
   `,
-  styles: [],
+  styles: [
+    `
+      .link {
+        display: inline-flex;
+      }
+    `,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PhotosSidebarComponent implements OnInit {

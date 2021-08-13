@@ -16,12 +16,6 @@ import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
       :host {
         display: flex;
       }
-      .sidebar {
-        max-width: 250px;
-      }
-      .details {
-        flex-grow: 1;
-      }
     `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,

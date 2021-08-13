@@ -6,7 +6,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
     <aside class="sidebar">
       <app-photos-sidebar></app-photos-sidebar>
     </aside>
-    <section class="details mat-elevation-z2">
+    <section class="details">
       <router-outlet></router-outlet>
     </section>
   `,
@@ -14,13 +14,6 @@ import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
     `
       :host {
         display: flex;
-      }
-      .sidebar {
-        max-width: 250px;
-      }
-      .details {
-        flex-grow: 1;
-        margin: 20px;
       }
     `,
   ],
