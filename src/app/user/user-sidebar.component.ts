@@ -13,7 +13,10 @@ interface User {
   template: `
     <ul>
       <li *ngFor="let user of users$ | async">
-        <a [routerLink]="[user.id]" class="link primary">
+        <a
+          [routerLink]="['', { outlets: { details: ['user', user.id] } }]"
+          class="link primary"
+        >
           <h4 class="mat-title">{{ user.name }}</h4>
         </a>
         <p class="mat-caption">{{ user.email }}</p>

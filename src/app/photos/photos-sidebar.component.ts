@@ -12,7 +12,10 @@ interface Photo {
   template: `
     <ul>
       <li *ngFor="let photo of photos$ | async" class="user">
-        <a class="link" [routerLink]="photo.id">
+        <a
+          class="link"
+          [routerLink]="['', { outlets: { details: ['photo', photo.id] } }]"
+        >
           <img [src]="photo.thumbnailUrl" alt="" width="60" />
         </a>
       </li>

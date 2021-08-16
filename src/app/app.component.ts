@@ -18,13 +18,29 @@ import { Component } from "@angular/core";
       </mat-toolbar>
     </header>
     <main class="content">
-      <router-outlet></router-outlet>
+      <aside class="sidebar">
+        <router-outlet></router-outlet>
+      </aside>
+      <section class="details">
+        <router-outlet
+          (activate)="isButtonVisible = true"
+          (deactivate)="isButtonVisible = false"
+          name="details"
+        ></router-outlet>
+        <a
+          mat-button
+          *ngIf="isButtonVisible"
+          [routerLink]="['', { outlets: { details: null } }]"
+          >close</a
+        >
+      </section>
     </main>
   `,
   styles: [
     `
       .content {
         min-height: calc(100vh - 64px);
+        display: flex;
       }
       .active {
         border-color: #fff;
@@ -35,4 +51,6 @@ import { Component } from "@angular/core";
     `,
   ],
 })
-export class AppComponent {}
+export class AppComponent {
+  isButtonVisible = false;
+}
