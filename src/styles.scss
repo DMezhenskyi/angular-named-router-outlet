@@ -30,6 +30,7 @@ li {
   justify-content: space-around;
   margin-bottom: 5px;
   box-sizing: border-box;
+  height: 70px;
 }
 .sidebar {
   max-width: 250px;
@@ -37,4 +38,13 @@ li {
 .details {
   flex-grow: 1;
   margin: 20px;
+}
+/* Animate items as they're being sorted. */
+.cdk-drop-list-dragging .cdk-drag {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* Animate an item that has been dropped. */
+.cdk-drag-animating {
+  transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
 }

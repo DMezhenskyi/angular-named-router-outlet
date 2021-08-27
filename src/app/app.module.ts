@@ -1,3 +1,4 @@
+import { DragDropModule } from "@angular/cdk/drag-drop";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -27,6 +28,7 @@ import { PhotosSidebarComponent } from "./photos/photos-sidebar.component";
     MatToolbarModule,
     MatButtonModule,
     HttpClientModule,
+    DragDropModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

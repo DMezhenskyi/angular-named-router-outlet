@@ -1,3 +1,5 @@
+import { Photo } from "./../photos/photo";
+import { CdkDragDrop, transferArrayItem } from "@angular/cdk/drag-drop";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import {
@@ -24,9 +26,26 @@ interface UserDetails {
       <p class="mat-caption">{{ user.email }}</p>
       <p class="mat-caption">User Id: {{ user.id }}</p>
     </section>
+    <ul
+      class="drop-area"
+      cdkDropList
+      [cdkDropListData]="photos"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <li *ngFor="let photo of photos" cdkDrag>
+        <img [src]="photo.thumbnailUrl" width="60" />
+      </li>
+    </ul>
   `,
   styles: [
     `
+      .drop-area {
+        border: #ccc dashed 2px;
+        padding: 20px 10px;
+        box-sizing: border-box;
+        margin-top: 15px;
+        display: flex;
+      }
       :host {
         display: block;
         background-color: #fafafa;
@@ -41,6 +60,7 @@ interface UserDetails {
 export class UserDetailsComponent implements OnInit {
   @HostBinding("class.mat-elevation-z2") hostCls = true;
   user$!: Observable<UserDetails>;
+  photos: Photo[] = [];
   constructor(
     private http: HttpClient,
     private activatedRoute: ActivatedRoute
@@ -55,5 +75,15 @@ export class UserDetailsComponent implements OnInit {
         )
       )
     );
+  }
+
+  drop(event: CdkDragDrop<Photo[]>) {
+    transferArrayItem(
+      event.previousContainer.data,
+      event.container.data,
+      event.previousIndex,
+      event.currentIndex
+    );
+    console.log(event);
   }
 }

@@ -17,7 +17,7 @@ import { Component } from "@angular/core";
         >
       </mat-toolbar>
     </header>
-    <main class="content">
+    <main class="content" cdkDropListGroup>
       <aside class="sidebar">
         <router-outlet></router-outlet>
       </aside>
