@@ -10,13 +10,15 @@ const routes: Routes = [
   {
     path: "users",
     component: UserSidebarComponent,
+    title: 'Users'
   },
-  { path: "user/:id", component: UserDetailsComponent, outlet: "details" },
+  { path: "user/:id", component: UserDetailsComponent, outlet: "details", title: 'User Details' },
   {
     path: "photos",
     component: PhotosSidebarComponent,
+    title: 'Photos'
   },
-  { path: "photo/:id", component: PhotosDetailsComponent, outlet: "details" },
+  { path: "photo/:id", component: PhotosDetailsComponent, outlet: "details", title: 'Photo Details' },
 ];
 
 @NgModule({
